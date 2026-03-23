@@ -1,0 +1,51 @@
+// Mobile-specific overrides for Frontier AI theme
+
+// Tighter spacing on mobile
+.d-header {
+  height: 50px;
+}
+
+// Topic list compact on mobile
+.topic-list {
+  .topic-list-item td {
+    padding: 12px 8px;
+  }
+
+  .main-link .title {
+    font-size: 0.875rem;
+  }
+}
+
+// Full-width buttons on mobile
+.d-header .header-buttons {
+  .sign-up-button,
+  .login-button {
+    padding: 8px 14px;
+    font-size: 0.8125rem;
+  }
+}
+
+// Category page on mobile
+.category-list .category-name {
+  font-size: 0.9375rem;
+}
+
+// Topic title on mobile
+#topic-title .fancy-title {
+  font-size: 1.375rem;
+}
+
+// Footer on mobile
+.custom-footer {
+  padding: 32px 20px 40px;
+
+  .footer-links {
+    gap: 16px;
+  }
+}
+
+// Navigation pills on mobile
+.navigation-container .nav-pills > li a {
+  padding: 8px 10px;
+  font-size: 0.75rem;
+}

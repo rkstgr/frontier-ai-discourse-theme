@@ -1,0 +1,40 @@
+{
+  "name": "Frontier AI",
+  "about_url": "https://frontier-ai.eu",
+  "license_url": "https://github.com/rkstgr/frontier-ai.eu/blob/main/LICENSE",
+  "component": false,
+  "assets": {
+    "instrument-sans-latin": "assets/fonts/instrument-sans-latin.woff2",
+    "instrument-sans-latin-ext": "assets/fonts/instrument-sans-latin-ext.woff2",
+    "ibm-plex-mono-400-latin": "assets/fonts/ibm-plex-mono-400-latin.woff2",
+    "ibm-plex-mono-400-latin-ext": "assets/fonts/ibm-plex-mono-400-latin-ext.woff2",
+    "ibm-plex-mono-500-latin": "assets/fonts/ibm-plex-mono-500-latin.woff2",
+    "ibm-plex-mono-500-latin-ext": "assets/fonts/ibm-plex-mono-500-latin-ext.woff2"
+  },
+  "color_schemes": {
+    "Frontier AI Light": {
+      "primary": "111113",
+      "secondary": "f6f6f4",
+      "tertiary": "111113",
+      "quaternary": "55555d",
+      "header_background": "f6f6f4",
+      "header_primary": "111113",
+      "highlight": "eeeee9",
+      "danger": "b33a3a",
+      "success": "3a7d44",
+      "love": "b33a3a"
+    },
+    "Frontier AI Dark": {
+      "primary": "ededf0",
+      "secondary": "0a0a0b",
+      "tertiary": "ededf0",
+      "quaternary": "a0a0a8",
+      "header_background": "0a0a0b",
+      "header_primary": "ededf0",
+      "highlight": "111113",
+      "danger": "d45d5d",
+      "success": "5aad65",
+      "love": "d45d5d"
+    }
+  }
+}

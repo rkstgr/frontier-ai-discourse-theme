@@ -1,0 +1,963 @@
+// ============================================================
+// Frontier AI — Discourse Theme
+// Mirrors the design system at frontier-ai.eu
+// ============================================================
+
+// --- Fonts ---------------------------------------------------
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 600;
+  src: url($instrument-sans-latin-ext) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 600;
+  src: url($instrument-sans-latin) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url($ibm-plex-mono-400-latin-ext) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url($ibm-plex-mono-400-latin) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url($ibm-plex-mono-500-latin-ext) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url($ibm-plex-mono-500-latin) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+// --- Variables -----------------------------------------------
+
+:root {
+  --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", "Fira Code",
+    Menlo, Consolas, monospace;
+  --frontier-bg: #f6f6f4;
+  --frontier-surface: #eeeee9;
+  --frontier-border: #d8d8d2;
+  --frontier-text-primary: #111113;
+  --frontier-text-secondary: #55555d;
+  --frontier-text-tertiary: #8a8a92;
+  --frontier-accent: #111113;
+  --frontier-accent-hover: #000000;
+}
+
+.dark-scheme {
+  --frontier-bg: #0a0a0b;
+  --frontier-surface: #111113;
+  --frontier-border: #1e1e22;
+  --frontier-text-primary: #ededf0;
+  --frontier-text-secondary: #a0a0a8;
+  --frontier-text-tertiary: #717179;
+  --frontier-accent: #ededf0;
+  --frontier-accent-hover: #ffffff;
+}
+
+// --- Global typography ---------------------------------------
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+// Monospace for code
+code,
+pre,
+.d-editor-input,
+kbd {
+  font-family: var(--font-mono);
+}
+
+// --- Border radius removal (square, modern) ------------------
+
+:root {
+  --d-border-radius: 0px;
+  --d-border-radius-large: 0px;
+  --d-nav-pill-border-radius: 0px;
+  --d-button-border-radius: 0px;
+  --d-input-border-radius: 0px;
+}
+
+.btn,
+.d-btn,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select,
+.select-kit .select-kit-header,
+.select-kit .select-kit-body,
+.d-modal .modal-inner-container,
+.d-modal .modal-body,
+.badge-wrapper,
+.avatar,
+.topic-list,
+.user-card,
+.popup-menu,
+.emoji-picker,
+.search-menu,
+.menu-panel,
+.drop-down-mode .d-header-icons .active .icon,
+.alert,
+.cooked pre,
+.cooked code,
+.d-editor-preview pre,
+.d-editor-preview code {
+  border-radius: 0 !important;
+}
+
+// --- Header --------------------------------------------------
+
+.d-header-wrap {
+  border-bottom: 1px solid var(--frontier-border);
+  box-shadow: none;
+}
+
+.d-header {
+  box-shadow: none !important;
+  border-bottom: none;
+
+  .d-header-icons {
+    .icon {
+      border-radius: 0;
+
+      .d-icon {
+        color: var(--frontier-text-secondary);
+      }
+
+      &:hover .d-icon {
+        color: var(--frontier-text-primary);
+      }
+    }
+
+    .active .icon {
+      border-radius: 0;
+    }
+  }
+
+  .header-buttons {
+    .btn {
+      border-radius: 0;
+    }
+
+    .sign-up-button {
+      background: var(--frontier-accent);
+      color: var(--frontier-bg);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0;
+      border: none;
+      padding: 8px 20px;
+      transition: background 0.15s ease;
+
+      &:hover {
+        background: var(--frontier-accent-hover);
+      }
+    }
+
+    .login-button {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      border: 1px solid var(--frontier-border);
+      background: transparent;
+      color: var(--frontier-text-secondary);
+      padding: 8px 20px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+
+      &:hover {
+        color: var(--frontier-text-primary);
+        border-color: var(--frontier-text-secondary);
+        background: transparent;
+      }
+    }
+  }
+}
+
+// Logo text styling
+.d-header .title {
+  a {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--frontier-text-primary);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--frontier-text-primary);
+    }
+  }
+}
+
+// --- Buttons -------------------------------------------------
+
+.btn,
+.d-btn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  letter-spacing: 0;
+}
+
+.btn-primary,
+.d-btn.btn-primary {
+  background: var(--frontier-accent);
+  color: var(--frontier-bg);
+  border: none;
+
+  &:hover,
+  &:focus {
+    background: var(--frontier-accent-hover);
+    color: var(--frontier-bg);
+  }
+}
+
+.btn-default,
+.d-btn.btn-default {
+  background: transparent;
+  border: 1px solid var(--frontier-border);
+  color: var(--frontier-text-secondary);
+
+  &:hover,
+  &:focus {
+    color: var(--frontier-text-primary);
+    border-color: var(--frontier-text-secondary);
+    background: transparent;
+  }
+}
+
+.btn-flat,
+.d-btn.btn-flat {
+  color: var(--frontier-text-secondary);
+
+  &:hover {
+    color: var(--frontier-text-primary);
+    background: var(--frontier-surface);
+  }
+
+  .d-icon {
+    color: var(--frontier-text-tertiary);
+  }
+
+  &:hover .d-icon {
+    color: var(--frontier-text-primary);
+  }
+}
+
+.btn-danger,
+.d-btn.btn-danger {
+  border-radius: 0;
+}
+
+// --- Navigation & tabs (pill style) --------------------------
+
+.navigation-container {
+  border-bottom: 1px solid var(--frontier-border);
+
+  .nav-pills > li {
+    a {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--frontier-text-secondary);
+      border-radius: 0;
+      padding: 8px 14px;
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: var(--frontier-text-primary);
+        background: var(--frontier-surface);
+      }
+    }
+
+    &.active a {
+      color: var(--frontier-text-primary);
+      background: var(--frontier-surface);
+      font-weight: 500;
+    }
+  }
+}
+
+// --- Categories page -----------------------------------------
+
+.category-list {
+  .category-name {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .category-description {
+    font-size: 0.875rem;
+    color: var(--frontier-text-secondary);
+    line-height: 1.5;
+  }
+}
+
+.badge-category__name {
+  font-weight: 500;
+}
+
+// Remove colorful category badge styles, use subtle borders
+.badge-wrapper.bullet .badge-category-bg {
+  border-radius: 0;
+}
+
+// --- Topic list ----------------------------------------------
+
+.topic-list {
+  border-collapse: collapse;
+
+  .topic-list-header {
+    border-bottom: 1px solid var(--frontier-border);
+  }
+
+  th {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--frontier-text-tertiary);
+    padding: 10px 12px;
+  }
+
+  .topic-list-item {
+    border-bottom: 1px solid var(--frontier-border);
+    transition: background 0.1s ease;
+
+    &:hover {
+      background: var(--frontier-surface);
+    }
+
+    td {
+      padding: 14px 12px;
+    }
+  }
+
+  .main-link {
+    .title {
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      letter-spacing: -0.01em;
+      color: var(--frontier-text-primary);
+      line-height: 1.4;
+    }
+
+    a.title:visited:not(.badge-notification) {
+      color: var(--frontier-text-secondary);
+    }
+  }
+
+  .link-bottom-line {
+    .discourse-tags {
+      .discourse-tag {
+        font-family: var(--font-mono);
+        font-size: 0.6875rem;
+        letter-spacing: 0.01em;
+      }
+    }
+  }
+
+  .posters {
+    a:first-child .avatar {
+      border-radius: 0;
+    }
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+
+    a {
+      color: var(--frontier-text-secondary);
+
+      &:hover {
+        color: var(--frontier-text-primary);
+      }
+    }
+  }
+}
+
+// --- Topic page ----------------------------------------------
+
+#topic-title {
+  .fancy-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    color: var(--frontier-text-primary);
+  }
+}
+
+.topic-meta-data {
+  .names .username a {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--frontier-text-primary);
+  }
+
+  .post-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--frontier-text-tertiary);
+  }
+}
+
+.topic-body {
+  border-top: none;
+
+  .cooked {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--frontier-text-primary);
+    letter-spacing: 0;
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--frontier-text-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--frontier-border);
+      transition: color 0.15s ease, border-color 0.15s ease;
+
+      &:hover {
+        border-color: var(--frontier-text-secondary);
+      }
+    }
+
+    blockquote {
+      border-left: 2px solid var(--frontier-border);
+      padding-left: 16px;
+      color: var(--frontier-text-secondary);
+      margin: 16px 0;
+    }
+
+    pre {
+      background: var(--frontier-surface);
+      border: 1px solid var(--frontier-border);
+      border-radius: 0;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+
+    code {
+      background: var(--frontier-surface);
+      border: 1px solid var(--frontier-border);
+      border-radius: 0;
+      padding: 2px 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+    }
+
+    pre code {
+      border: none;
+      padding: 0;
+      background: none;
+    }
+
+    ul,
+    ol {
+      padding-left: 24px;
+
+      li {
+        margin-bottom: 6px;
+        line-height: 1.6;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--frontier-border);
+      margin: 32px 0;
+    }
+
+    img {
+      border-radius: 0;
+    }
+  }
+}
+
+// Post actions (like, share, etc.)
+.post-actions,
+.topic-map {
+  border-top: 1px solid var(--frontier-border);
+}
+
+nav.post-controls {
+  .actions {
+    button {
+      color: var(--frontier-text-tertiary);
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: var(--frontier-text-primary);
+        background: var(--frontier-surface);
+      }
+
+      .d-icon {
+        color: inherit;
+      }
+    }
+
+    .has-like .d-icon {
+      color: var(--frontier-text-tertiary);
+    }
+  }
+}
+
+// Post stream separator
+.topic-post {
+  border-bottom: 1px solid var(--frontier-border);
+  padding-bottom: 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.small-action {
+  border-top: 1px solid var(--frontier-border);
+
+  .small-action-desc {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--frontier-text-tertiary);
+  }
+}
+
+// --- Avatars -------------------------------------------------
+
+.avatar {
+  border-radius: 0 !important;
+}
+
+img.avatar {
+  border-radius: 0 !important;
+}
+
+// --- Composer ------------------------------------------------
+
+#reply-control {
+  border-top: 1px solid var(--frontier-border);
+  border-radius: 0;
+
+  .reply-to {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+
+  .d-editor-textarea-wrapper {
+    border: 1px solid var(--frontier-border);
+    border-radius: 0;
+
+    textarea {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+  }
+
+  .d-editor-button-bar {
+    .btn {
+      border-radius: 0;
+    }
+  }
+
+  .submit-panel {
+    .btn-primary {
+      font-family: var(--font-sans);
+      font-weight: 600;
+    }
+  }
+}
+
+// --- Search --------------------------------------------------
+
+.search-menu,
+.search-menu-container {
+  border-radius: 0;
+  border: 1px solid var(--frontier-border);
+
+  .search-input {
+    input {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      border-radius: 0;
+    }
+  }
+
+  .results {
+    .topic-title {
+      font-weight: 500;
+    }
+  }
+}
+
+// --- User card & profile -------------------------------------
+
+.user-card,
+.group-card {
+  border-radius: 0;
+  border: 1px solid var(--frontier-border);
+  box-shadow: none;
+
+  .card-content {
+    .username {
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    .name {
+      font-family: var(--font-sans);
+      color: var(--frontier-text-secondary);
+    }
+  }
+}
+
+// --- Tags & badges -------------------------------------------
+
+.discourse-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.01em;
+  color: var(--frontier-text-secondary);
+  background: var(--frontier-surface);
+  border: 1px solid var(--frontier-border);
+  border-radius: 0;
+  padding: 2px 8px;
+
+  &:hover {
+    color: var(--frontier-text-primary);
+    border-color: var(--frontier-text-secondary);
+  }
+}
+
+.badge-notification {
+  border-radius: 0;
+}
+
+// --- Dropdown menus & panels ---------------------------------
+
+.menu-panel,
+.popup-menu {
+  border-radius: 0;
+  border: 1px solid var(--frontier-border);
+  box-shadow: none;
+
+  li a {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+
+    &:hover {
+      background: var(--frontier-surface);
+    }
+  }
+}
+
+.user-menu .tabs-list {
+  border-bottom: 1px solid var(--frontier-border);
+}
+
+// --- Modals / dialogs ----------------------------------------
+
+.d-modal {
+  .modal-inner-container {
+    border-radius: 0;
+    border: 1px solid var(--frontier-border);
+  }
+
+  .modal-header {
+    border-bottom: 1px solid var(--frontier-border);
+
+    .title h3 {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .modal-footer {
+    border-top: 1px solid var(--frontier-border);
+  }
+}
+
+// --- Alerts & notices ----------------------------------------
+
+.alert {
+  border-radius: 0;
+  border: 1px solid var(--frontier-border);
+}
+
+// --- Select kit (dropdowns) ----------------------------------
+
+.select-kit {
+  .select-kit-header {
+    border-radius: 0;
+    border: 1px solid var(--frontier-border);
+  }
+
+  .select-kit-body {
+    border-radius: 0;
+    border: 1px solid var(--frontier-border);
+    box-shadow: none;
+  }
+
+  .select-kit-row {
+    &:hover,
+    &.is-highlighted {
+      background: var(--frontier-surface);
+    }
+  }
+}
+
+// --- Suggested topics ----------------------------------------
+
+.suggested-topics {
+  .topic-list-header th {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--frontier-text-tertiary);
+  }
+}
+
+// --- Footer --------------------------------------------------
+
+.custom-footer {
+  border-top: 1px solid var(--frontier-border);
+  padding: 40px 24px 48px;
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--frontier-text-tertiary);
+
+  a {
+    color: var(--frontier-text-tertiary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: var(--frontier-text-secondary);
+      border-bottom-color: var(--frontier-border);
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+// --- Scrollbar styling ---------------------------------------
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--frontier-border);
+  border-radius: 0;
+
+  &:hover {
+    background: var(--frontier-text-tertiary);
+  }
+}
+
+// --- Miscellaneous -------------------------------------------
+
+// Loading spinner
+.spinner {
+  border-color: var(--frontier-border);
+  border-top-color: var(--frontier-accent);
+}
+
+// Topic timeline
+.topic-timeline {
+  .timeline-handle {
+    background: var(--frontier-border);
+  }
+
+  .timeline-scrollarea {
+    border-color: var(--frontier-border);
+  }
+}
+
+// Progress bar / topic progress
+#topic-progress {
+  border: 1px solid var(--frontier-border);
+  border-radius: 0;
+  background: var(--frontier-surface);
+}
+
+// Onebox (link previews)
+aside.onebox {
+  border: 1px solid var(--frontier-border);
+  border-radius: 0;
+
+  header {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+}
+
+// Emoji picker
+.emoji-picker {
+  border-radius: 0;
+  border: 1px solid var(--frontier-border);
+}
+
+// Upload / drag-drop area
+.d-editor-textarea-wrapper .uploading,
+.d-editor-textarea-wrapper .d-editor-spacer {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+// Topic map
+.topic-map {
+  border: 1px solid var(--frontier-border);
+  border-radius: 0;
+  background: var(--frontier-surface);
+
+  .map {
+    border-top: 1px solid var(--frontier-border);
+  }
+}
+
+// Breadcrumbs
+.category-breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+// Loading bar at top
+.pace .pace-progress {
+  background: var(--frontier-accent);
+  height: 2px;
+}
+
+// Quote styling
+.quote-button {
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
