@@ -81,124 +81,16 @@
     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", "Fira Code",
     Menlo, Consolas, monospace;
-  --frontier-bg: #f6f6f4;
-  --frontier-surface: #eeeee9;
-  --frontier-border: #d8d8d2;
-  --frontier-text-primary: #111113;
-  --frontier-text-secondary: #55555d;
-  --frontier-text-tertiary: #8a8a92;
-  --frontier-accent: #111113;
-  --frontier-accent-hover: #000000;
-}
-
-.dark-scheme {
-  --frontier-bg: #0a0a0b;
-  --frontier-surface: #111113;
-  --frontier-border: #1e1e22;
-  --frontier-text-primary: #ededf0;
-  --frontier-text-secondary: #a0a0a8;
-  --frontier-text-tertiary: #717179;
-  --frontier-accent: #ededf0;
-  --frontier-accent-hover: #ffffff;
-
-  // Override Discourse's generated color scale for dark mode
-  --primary-very-low: #111113;
-  --primary-low: #1e1e22;
-  --primary-low-mid: #2a2a30;
-  --primary-medium: #717179;
-  --primary-high: #a0a0a8;
-  --primary-very-high: #ededf0;
-  --secondary-low: #111113;
-  --secondary-high: #111113;
-  --secondary-very-high: #1e1e22;
-  --tertiary-low: #1e1e22;
-  --tertiary-medium: #717179;
-  --tertiary-hover: #ffffff;
-  --highlight-bg: #111113;
-  --highlight-medium: #1e1e22;
-  --highlight-low: #111113;
-  --highlight-high: #2a2a30;
-
-  // Sidebar
-  --d-sidebar-highlight-color: var(--frontier-surface);
-  --d-sidebar-link-color: var(--frontier-text-secondary);
-  --d-sidebar-link-icon-color: var(--frontier-text-tertiary);
-
-  // Navigation pills
-  --d-nav-pill-bg: var(--frontier-surface);
-  --d-nav-pill-color: var(--frontier-text-primary);
-
-  // Input fields
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="number"],
-  input[type="search"],
-  textarea,
-  select {
-    background: var(--frontier-surface) !important;
-    border-color: var(--frontier-border) !important;
-    color: var(--frontier-text-primary) !important;
-  }
-
-  // Sidebar active item
-  .sidebar-wrapper {
-    .sidebar-section-link.active {
-      background: var(--frontier-surface) !important;
-    }
-  }
-
-  // Navigation pills active state
-  .navigation-container .nav-pills > li.active a {
-    background: var(--frontier-surface) !important;
-    color: var(--frontier-text-primary) !important;
-  }
-
-  // Select-kit (categories/tags dropdowns)
-  .select-kit .select-kit-header {
-    border-color: var(--frontier-border) !important;
-    background: transparent !important;
-  }
-
-  .select-kit .select-kit-body {
-    background: var(--frontier-bg);
-  }
-
-  // Dropdown panels and menus
-  .menu-panel,
-  .popup-menu {
-    background: var(--frontier-bg);
-  }
-
-  .user-card,
-  .group-card {
-    background: var(--frontier-bg);
-  }
-
-  .d-modal .modal-inner-container {
-    background: var(--frontier-bg);
-  }
-
-  .alert {
-    background: var(--frontier-surface);
-    color: var(--frontier-text-primary);
-  }
-
-  // Search
-  .search-menu,
-  .search-menu-container {
-    background: var(--frontier-bg);
-  }
-
-  // Composer
-  #reply-control {
-    background: var(--frontier-bg);
-  }
-
-  // Emoji picker
-  .emoji-picker {
-    background: var(--frontier-bg);
-  }
+  // Map frontier vars to Discourse's native color scheme vars
+  // so they auto-adapt to light/dark based on the active color scheme
+  --frontier-bg: var(--secondary);
+  --frontier-surface: var(--highlight);
+  --frontier-border: var(--primary-low);
+  --frontier-text-primary: var(--primary);
+  --frontier-text-secondary: var(--quaternary);
+  --frontier-text-tertiary: var(--primary-medium);
+  --frontier-accent: var(--tertiary);
+  --frontier-accent-hover: var(--primary);
 }
 
 // --- Global typography ---------------------------------------
