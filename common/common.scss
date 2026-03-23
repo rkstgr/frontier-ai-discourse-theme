@@ -210,7 +210,7 @@ select,
       font-weight: 600;
       font-size: 0.875rem;
       letter-spacing: 0;
-      border: none;
+      border: 1px solid transparent;
       padding: 8px 20px;
       transition: background 0.15s ease;
 
@@ -270,7 +270,7 @@ select,
 .d-btn.btn-primary {
   background: var(--frontier-accent);
   color: var(--frontier-bg);
-  border: none;
+  border: 1px solid transparent;
 
   &:hover,
   &:focus {
@@ -289,7 +289,6 @@ select,
   &:focus {
     color: var(--frontier-text-primary);
     border-color: var(--frontier-text-secondary);
-    background: transparent;
   }
 }
 
