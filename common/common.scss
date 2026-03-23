@@ -831,37 +831,6 @@ img.avatar {
   }
 }
 
-// --- Footer --------------------------------------------------
-
-.custom-footer {
-  border-top: 1px solid var(--frontier-border);
-  padding: 40px 24px 48px;
-  max-width: 640px;
-  margin: 0 auto;
-  width: 100%;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--frontier-text-tertiary);
-
-  a {
-    color: var(--frontier-text-tertiary);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: color 0.15s ease, border-color 0.15s ease;
-
-    &:hover {
-      color: var(--frontier-text-secondary);
-      border-bottom-color: var(--frontier-border);
-    }
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-}
-
 // --- Scrollbar styling ---------------------------------------
 
 ::-webkit-scrollbar {
