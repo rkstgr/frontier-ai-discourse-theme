@@ -101,26 +101,32 @@
   --frontier-accent: #ededf0;
   --frontier-accent-hover: #ffffff;
 
-  // Override Discourse's native CSS variables that buttons and
-  // other components fall back to when not styled with --frontier-*
-  --d-button-default-bg: transparent;
-  --d-button-default-border-color: var(--frontier-border);
-  --d-button-default-text-color: var(--frontier-text-secondary);
-  --d-button-default-hover-bg: transparent;
-  --d-button-default-hover-border-color: var(--frontier-text-secondary);
-  --d-button-default-hover-text-color: var(--frontier-text-primary);
-  --d-button-primary-bg: var(--frontier-accent);
-  --d-button-primary-text-color: var(--frontier-bg);
-  --d-button-primary-hover-bg: var(--frontier-accent-hover);
-  --d-button-primary-hover-text-color: var(--frontier-bg);
-
-  // Ensure body and all surfaces use dark background
-  background-color: var(--frontier-bg);
-
-  // Discourse-native highlight and hover surfaces
-  --highlight-bg: #16161a;
+  // Override Discourse's generated color scale for dark mode
+  --primary-very-low: #111113;
+  --primary-low: #1e1e22;
+  --primary-low-mid: #2a2a30;
+  --primary-medium: #717179;
+  --primary-high: #a0a0a8;
+  --primary-very-high: #ededf0;
+  --secondary-low: #111113;
+  --secondary-high: #111113;
+  --secondary-very-high: #1e1e22;
+  --tertiary-low: #1e1e22;
+  --tertiary-medium: #717179;
+  --tertiary-hover: #ffffff;
+  --highlight-bg: #111113;
   --highlight-medium: #1e1e22;
   --highlight-low: #111113;
+  --highlight-high: #2a2a30;
+
+  // Sidebar
+  --d-sidebar-highlight-color: var(--frontier-surface);
+  --d-sidebar-link-color: var(--frontier-text-secondary);
+  --d-sidebar-link-icon-color: var(--frontier-text-tertiary);
+
+  // Navigation pills
+  --d-nav-pill-bg: var(--frontier-surface);
+  --d-nav-pill-color: var(--frontier-text-primary);
 
   // Input fields
   input[type="text"],
@@ -130,12 +136,35 @@
   input[type="search"],
   textarea,
   select {
-    background: var(--frontier-surface);
-    border-color: var(--frontier-border);
-    color: var(--frontier-text-primary);
+    background: var(--frontier-surface) !important;
+    border-color: var(--frontier-border) !important;
+    color: var(--frontier-text-primary) !important;
   }
 
-  // Dropdown panels and menus need dark backgrounds
+  // Sidebar active item
+  .sidebar-wrapper {
+    .sidebar-section-link.active {
+      background: var(--frontier-surface) !important;
+    }
+  }
+
+  // Navigation pills active state
+  .navigation-container .nav-pills > li.active a {
+    background: var(--frontier-surface) !important;
+    color: var(--frontier-text-primary) !important;
+  }
+
+  // Select-kit (categories/tags dropdowns)
+  .select-kit .select-kit-header {
+    border-color: var(--frontier-border) !important;
+    background: transparent !important;
+  }
+
+  .select-kit .select-kit-body {
+    background: var(--frontier-bg);
+  }
+
+  // Dropdown panels and menus
   .menu-panel,
   .popup-menu {
     background: var(--frontier-bg);
@@ -155,34 +184,15 @@
     color: var(--frontier-text-primary);
   }
 
-  .select-kit .select-kit-body {
-    background: var(--frontier-bg);
-  }
-
-  // Search menu
+  // Search
   .search-menu,
   .search-menu-container {
     background: var(--frontier-bg);
-
-    .search-input input {
-      background: var(--frontier-surface);
-      color: var(--frontier-text-primary);
-    }
   }
 
   // Composer
   #reply-control {
     background: var(--frontier-bg);
-
-    .d-editor-textarea-wrapper textarea {
-      background: var(--frontier-surface);
-      color: var(--frontier-text-primary);
-    }
-  }
-
-  // Topic map
-  .topic-map {
-    background: var(--frontier-surface);
   }
 
   // Emoji picker
