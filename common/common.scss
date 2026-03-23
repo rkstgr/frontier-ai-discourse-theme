@@ -710,6 +710,10 @@ img.avatar {
   border: 1px solid var(--frontier-border);
   box-shadow: none;
 
+  &:empty {
+    border: none;
+  }
+
   .card-content {
     .username {
       font-family: var(--font-mono);

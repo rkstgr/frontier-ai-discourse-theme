@@ -1,8 +1,0 @@
-show_homepage_link:
-  default: true
-  type: bool
-  description: "Show a link back to frontier-ai.eu in the header"
-homepage_url:
-  default: "https://frontier-ai.eu"
-  type: string
-  description: "URL for the homepage link in the header"
