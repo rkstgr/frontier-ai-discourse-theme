@@ -329,6 +329,15 @@ select,
 .navigation-container {
   border-bottom: 1px solid var(--frontier-border);
 
+  .select-kit .select-kit-header {
+    border: none;
+    background: var(--frontier-surface);
+  }
+
+  #create-topic {
+    border: none;
+  }
+
   .nav-pills > li {
     a {
       font-family: var(--font-mono);
