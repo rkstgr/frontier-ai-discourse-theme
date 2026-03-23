@@ -94,12 +94,83 @@
 .dark-scheme {
   --frontier-bg: #0a0a0b;
   --frontier-surface: #111113;
-  --frontier-border: #1e1e22;
+  --frontier-border: #19191d;
   --frontier-text-primary: #ededf0;
-  --frontier-text-secondary: #a0a0a8;
+  --frontier-text-secondary: #b4b4bc;
   --frontier-text-tertiary: #717179;
   --frontier-accent: #ededf0;
   --frontier-accent-hover: #ffffff;
+
+  // Override Discourse's built-in button colors for dark mode
+  .btn-primary,
+  .d-btn.btn-primary {
+    background: var(--frontier-accent);
+    color: var(--frontier-bg);
+
+    &:hover,
+    &:focus {
+      background: var(--frontier-accent-hover);
+      color: var(--frontier-bg);
+    }
+
+    .d-icon {
+      color: var(--frontier-bg);
+    }
+  }
+
+  .btn-default,
+  .d-btn.btn-default {
+    background: transparent;
+    border: 1px solid var(--frontier-border);
+    color: var(--frontier-text-secondary);
+
+    &:hover,
+    &:focus {
+      color: var(--frontier-text-primary);
+      border-color: var(--frontier-text-secondary);
+      background: transparent;
+    }
+
+    .d-icon {
+      color: var(--frontier-text-tertiary);
+    }
+  }
+
+  .btn-flat,
+  .d-btn.btn-flat {
+    color: var(--frontier-text-secondary);
+
+    &:hover {
+      color: var(--frontier-text-primary);
+      background: var(--frontier-surface);
+    }
+
+    .d-icon {
+      color: var(--frontier-text-tertiary);
+    }
+
+    &:hover .d-icon {
+      color: var(--frontier-text-primary);
+    }
+  }
+
+  .btn-icon,
+  .d-btn.btn-icon {
+    color: var(--frontier-text-secondary);
+
+    .d-icon {
+      color: var(--frontier-text-tertiary);
+    }
+
+    &:hover {
+      color: var(--frontier-text-primary);
+      background: var(--frontier-surface);
+
+      .d-icon {
+        color: var(--frontier-text-primary);
+      }
+    }
+  }
 }
 
 // --- Global typography ---------------------------------------
