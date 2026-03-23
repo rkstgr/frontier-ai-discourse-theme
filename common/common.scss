@@ -94,82 +94,100 @@
 .dark-scheme {
   --frontier-bg: #0a0a0b;
   --frontier-surface: #111113;
-  --frontier-border: #19191d;
+  --frontier-border: #1e1e22;
   --frontier-text-primary: #ededf0;
-  --frontier-text-secondary: #b4b4bc;
+  --frontier-text-secondary: #a0a0a8;
   --frontier-text-tertiary: #717179;
   --frontier-accent: #ededf0;
   --frontier-accent-hover: #ffffff;
 
-  // Override Discourse's built-in button colors for dark mode
-  .btn-primary,
-  .d-btn.btn-primary {
-    background: var(--frontier-accent);
-    color: var(--frontier-bg);
+  // Override Discourse's native CSS variables that buttons and
+  // other components fall back to when not styled with --frontier-*
+  --d-button-default-bg: transparent;
+  --d-button-default-border-color: var(--frontier-border);
+  --d-button-default-text-color: var(--frontier-text-secondary);
+  --d-button-default-hover-bg: transparent;
+  --d-button-default-hover-border-color: var(--frontier-text-secondary);
+  --d-button-default-hover-text-color: var(--frontier-text-primary);
+  --d-button-primary-bg: var(--frontier-accent);
+  --d-button-primary-text-color: var(--frontier-bg);
+  --d-button-primary-hover-bg: var(--frontier-accent-hover);
+  --d-button-primary-hover-text-color: var(--frontier-bg);
 
-    &:hover,
-    &:focus {
-      background: var(--frontier-accent-hover);
-      color: var(--frontier-bg);
-    }
+  // Ensure body and all surfaces use dark background
+  background-color: var(--frontier-bg);
 
-    .d-icon {
-      color: var(--frontier-bg);
-    }
+  // Discourse-native highlight and hover surfaces
+  --highlight-bg: #16161a;
+  --highlight-medium: #1e1e22;
+  --highlight-low: #111113;
+
+  // Input fields
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select {
+    background: var(--frontier-surface);
+    border-color: var(--frontier-border);
+    color: var(--frontier-text-primary);
   }
 
-  .btn-default,
-  .d-btn.btn-default {
-    background: transparent;
-    border: 1px solid var(--frontier-border);
-    color: var(--frontier-text-secondary);
-
-    &:hover,
-    &:focus {
-      color: var(--frontier-text-primary);
-      border-color: var(--frontier-text-secondary);
-      background: transparent;
-    }
-
-    .d-icon {
-      color: var(--frontier-text-tertiary);
-    }
+  // Dropdown panels and menus need dark backgrounds
+  .menu-panel,
+  .popup-menu {
+    background: var(--frontier-bg);
   }
 
-  .btn-flat,
-  .d-btn.btn-flat {
-    color: var(--frontier-text-secondary);
+  .user-card,
+  .group-card {
+    background: var(--frontier-bg);
+  }
 
-    &:hover {
-      color: var(--frontier-text-primary);
+  .d-modal .modal-inner-container {
+    background: var(--frontier-bg);
+  }
+
+  .alert {
+    background: var(--frontier-surface);
+    color: var(--frontier-text-primary);
+  }
+
+  .select-kit .select-kit-body {
+    background: var(--frontier-bg);
+  }
+
+  // Search menu
+  .search-menu,
+  .search-menu-container {
+    background: var(--frontier-bg);
+
+    .search-input input {
       background: var(--frontier-surface);
-    }
-
-    .d-icon {
-      color: var(--frontier-text-tertiary);
-    }
-
-    &:hover .d-icon {
       color: var(--frontier-text-primary);
     }
   }
 
-  .btn-icon,
-  .d-btn.btn-icon {
-    color: var(--frontier-text-secondary);
+  // Composer
+  #reply-control {
+    background: var(--frontier-bg);
 
-    .d-icon {
-      color: var(--frontier-text-tertiary);
-    }
-
-    &:hover {
-      color: var(--frontier-text-primary);
+    .d-editor-textarea-wrapper textarea {
       background: var(--frontier-surface);
-
-      .d-icon {
-        color: var(--frontier-text-primary);
-      }
+      color: var(--frontier-text-primary);
     }
+  }
+
+  // Topic map
+  .topic-map {
+    background: var(--frontier-surface);
+  }
+
+  // Emoji picker
+  .emoji-picker {
+    background: var(--frontier-bg);
   }
 }
 
